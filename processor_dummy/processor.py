@@ -1,13 +1,12 @@
 import json
 import logging
 import os
+import sys
 
 logger = logging.getLogger('testing.dummy_adapter')
 
 
-def function(task_descriptor, working_directory, status_logger):
-    logger.info(f"f({task_descriptor}, '{working_directory}')")
-
+def function(working_directory):
     try:
         a_path = os.path.join(working_directory, 'a')
         with open(a_path, 'r') as f:
@@ -37,3 +36,6 @@ def function(task_descriptor, working_directory, status_logger):
         logger.error(f"exception in function: {e}")
         return False
 
+
+if __name__ == '__main__':
+    function(sys.argv[0])
