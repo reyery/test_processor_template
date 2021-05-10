@@ -31,4 +31,4 @@ def function(working_directory):
 
 
 if __name__ == '__main__':
-    function(sys.argv[0])
+    function(sys.argv[1])
